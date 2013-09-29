@@ -16,6 +16,6 @@ class StationSerializer(serializers.ModelSerializer):
         model = Station
         fields = ('lat',
                   'lon',
-                  'status'
+                  'stat'
                   )
         read_only_fields = ('id', )
