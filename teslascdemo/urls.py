@@ -6,6 +6,7 @@ from django.views.generic import RedirectView, TemplateView
 from django.contrib import admin
 admin.autodiscover()
 
+
 # needed to link rest_framework to registration views - allows login/logout from browsable API
 authpatterns = patterns('django.contrib.auth.views',
     url(r'^login/$', 'login', {'template_name': 'registration/login.html'}, name='login'),

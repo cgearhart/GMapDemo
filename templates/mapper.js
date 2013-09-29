@@ -11,9 +11,9 @@
 
             var options = {
                 center: this.center,
-                zoom: this.zoom,
-                maxZoom: 5,
-                minZoom: 5,
+                // zoom: this.zoom,
+                // maxZoom: 5,
+                // minZoom: 5,
                 disableDefaultUI: true,
                 scrollwheel: false,
                 keyboardShortcuts: false,
@@ -21,14 +21,13 @@
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
 
-            if ( !this.handle ) {
-                this.handle = new google.maps.Map(window.document.getElementById(this.target_id), options);
-            } else {
-                this.handle.panTo(this.center);  // Always try returning to center - does nothing if already centered
-                if ( this.zoom != this.handle.getZoom() ) {  // Redraws whole map - only try if zoom has changed
-                    this.handle.setZoom(this.zoom);
-                }
-            }
+            this.handle = new google.maps.Map(window.document.getElementById(this.target_id), options);
+
+            var sw = new google.maps.LatLng(24.20689,-126.927795);
+            var ne = new google.maps.LatLng(49.667628,-66.459045);
+            var bounds = new google.maps.LatLngBounds(sw, ne);
+            this.handle.fitBounds(bounds);
+
         },
 
         drawMarkers: function () {
