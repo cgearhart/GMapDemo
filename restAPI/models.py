@@ -8,9 +8,6 @@ from django.contrib.auth.models import UserManager as BaseUserManager
 from django.core.mail import send_mail
 from django.utils.translation import ugettext_lazy as _
 
-from django.core.signals import request_started
-from django.dispatch import receiver
-
 
 class UserManager(BaseUserManager):
     """
@@ -134,18 +131,11 @@ class Station(models.Model):
     lon = models.FloatField(_("Longitude"),
                             blank=False,
                             )
-    stat = models.CharField(_("Status"),
-                            max_length=150,
-                            choices=STATUS,
-                            blank=False,
-                            )
+    # stat = models.CharField(_("Status"),
+    #                         max_length=150,
+    #                         choices=STATUS,
+    #                         blank=False,
+    #                         )
 
-
-@receiver(request_started)
-def randomize_stat(sender, **kwargs):
-    """
-    Randomize status of each station on requests
-    """
-    station = choice(Station.objects.all())
-    station.stat = choice(Station.STATUS)[0]
-    station.save()
+    def get_stat(self):
+        return choice(self.STATUS)[0]

@@ -12,10 +12,12 @@ from restAPI.models import Station
 
 class StationSerializer(serializers.ModelSerializer):
 
+    stat = serializers.CharField(source='get_stat', read_only=True)
+
     class Meta:
         model = Station
         fields = ('lat',
                   'lon',
-                  'stat'
+                  'stat',
                   )
         read_only_fields = ('id', )
