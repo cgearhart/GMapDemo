@@ -1,0 +1,12 @@
+{% extends "rest_framework/base.html" %}
+{% block head %}
+{{ block.super }}
+{# Add Google Analytics code to the rest framework views #}
+{% include 'ga_head.js' %}
+{% endblock %}
+
+{% block script %}
+{{ block.super }}
+{# Add Google Analytics code to the rest framework views #}
+{% include 'ga.js' %}
+{% endblock %}

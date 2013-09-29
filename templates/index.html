@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta charset="utf-8">
+        
+        <title>SuperCharger Demo</title>
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/base/jquery-ui.css">
+        <style type="text/css">
+            html { height:100% }
+            body { height:100%; margin:0; padding:0 }
+            #contents { width:100%; height:100% }
+            #map_canvas { height:100% }
+            #message { text-align:right; line-height:1.4; font-family: Verdana,Arial,sans-serif; font-size: 1em }
+            #ui_panel { position:absolute; right: 10px; z-index:1; bottom:1em; width:auto; height:auto }
+            #ui_buttons { bottom:0px }
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="http://teslascdemo.s3.amazonaws.com/mapper.js"></script>
+        {% include 'ga_head.js' %}
+    </head>
+
+    <body onload="mapper.initialize('map_canvas')">  
+        <div id="contents">
+            <div id="map_canvas"></div>
+            </div>
+        </div>
+        {% include 'ga.js' %}
+    </body>
+</html>    
+

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+{% block extracss %}
+{{ form.media.css }}
+{% endblock %}
+{% include 'ga_head.js' %}
+</head>
+<body>
+{% block main %}
+{% block masthead %}{% endblock %}
+{% block content %}{% endblock %}
+{% endblock %}
+
+{% include 'ga.js' %}
+</body>
+</HTML>

@@ -1,0 +1,217 @@
+[
+  {
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+      "domain": "teslascdemo.herokuapp.com",
+      "name": "Tesla Demo"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 1,
+    "fields": {
+        "lat":46.729732,
+        "lon":-122.977454,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 2,
+    "fields": {
+        "lat":48.509771,
+        "lon":-122.338627,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 3,
+    "fields": {
+        "lat":41.245676,
+        "lon":-73.008617,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 4,
+    "fields": {
+        "lat":45.153130,
+        "lon":-122.881254,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 5,
+    "fields": {
+        "lat":39.552676,
+        "lon":-107.340170,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 6,
+    "fields": {
+        "lat":41.068165,
+        "lon":-73.504670,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 7,
+    "fields": {
+        "lat":38.642484,
+        "lon":-121.187850,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 8,
+    "fields": {
+        "lat":37.493554,
+        "lon":-121.945435,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 9,
+    "fields": {
+        "lat":39.662238,
+        "lon":-75.691749,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 10,
+    "fields": {
+        "lat":42.243893,
+        "lon":-88.978895,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 11,
+    "fields": {
+        "lat":37.024364,
+        "lon":-121.565419,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 12,
+    "fields": {
+        "lat":36.254137,
+        "lon":-120.237833,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 13,
+    "fields": {
+        "lat":40.508494,
+        "lon":-88.985567,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 14,
+    "fields": {
+        "lat":31.582287,
+        "lon":-97.109152,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 15,
+    "fields": {
+        "lat":35.486544,
+        "lon":-120.666340,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 16,
+    "fields": {
+        "lat":34.614570,
+        "lon":-120.188402,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 17,
+    "fields": {
+        "lat":29.827707,
+        "lon":-97.979685,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 18,
+    "fields": {
+        "lat":29.108571,
+        "lon":-81.034603,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 19,
+    "fields": {
+        "lat":34.987253,
+        "lon":-118.946274,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 20,
+    "fields": {
+        "lat":33.921124,
+        "lon":-118.330031,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 21,
+    "fields": {
+        "lat":27.312966,
+        "lon":-80.406689,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 22,
+    "fields": {
+        "lat":26.485574,
+        "lon":-81.787149,
+        "status":"Op"
+    }
+  },
+  {
+    "model": "restAPI.station",
+    "pk": 23,
+    "fields": {
+        "lat":34.849047,
+        "lon":-117.085358,
+        "status":"Op"
+    }
+  }
+]
