@@ -39,21 +39,19 @@
                     for (var idx = 0; idx < data.length; idx++) {
                         var station = data[idx];
                         var location = new google.maps.LatLng(station.lat,
-                                                              station.lng);
-                        alert(location);
+                                                              station.lon);
                         var icon = null;
-                        alert(station.stat);
-                        switch (station.stat) {
-                            case "Operational":
+                        switch (station.stat.toLowerCase()) {
+                            case "op":
                                 icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/green-dot.png";
                                 break;
-                            case "Scheduled Maintenance":
+                            case "sm":
                                 icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png";
                                 break;
-                            case "Unscheduled Maintenance":
+                            case "um":
                                 icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/yellow-dot.png";
                                 break;
-                            case "Out of Service":
+                            case "os":
                                 icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png";
                                 break;
                         }
