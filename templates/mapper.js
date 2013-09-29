@@ -13,20 +13,20 @@
             // draw a map approximately centered on the united states and 
             // override default map options to disable user interaction
             var options = {
-                center: new google.maps.LatLng(38, -98),
-                zoom: 5,
-                disableDefaultUI: true,
+                center: new google.maps.LatLng(49, -158.25),
                 scrollwheel: false,
                 keyboardShortcuts: false,
                 draggable: false,
+                disableDoubleClickZoom: true,
+                disableDefaultUI: true,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             var div_handle = window.document.getElementById(this.target_id);
             this.handle = new google.maps.Map(div_handle, options);
 
             // make sure the map shows all of the supercharger stations
-            var sw = new google.maps.LatLng(24.20689,-126.927795);
-            var ne = new google.maps.LatLng(49.667628,-66.459045);
+            var sw = new google.maps.LatLng(24,-125);
+            var ne = new google.maps.LatLng(50,-66.5);
             var bounds = new google.maps.LatLngBounds(sw, ne);
             this.handle.fitBounds(bounds);
 
