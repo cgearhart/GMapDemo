@@ -12,6 +12,9 @@ from restAPI.models import Station
 
 class StationSerializer(serializers.ModelSerializer):
 
+    # simulated station state; disable this line (and enable code in
+    # models.py) to handle `stat` as a model field in order to use the
+    # API for health monitoring.
     stat = serializers.CharField(source='get_stat', read_only=True)
 
     class Meta:

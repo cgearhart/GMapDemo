@@ -14,10 +14,6 @@ authpatterns = patterns('django.contrib.auth.views',
 )
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'wineApp.views.home', name='home'),
-    # url(r'^wineApp/', include('wineApp.foo.urls')),
-
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

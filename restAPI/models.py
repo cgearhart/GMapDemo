@@ -124,7 +124,6 @@ class Station(models.Model):
         ('OS', 'Out of Service'),  # red
         )
 
-    # User-defined fields
     lat = models.FloatField(_("Latitutde"),
                             blank=False,
                             )
