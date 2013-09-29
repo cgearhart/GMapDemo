@@ -130,8 +130,8 @@ class Station(models.Model):
     lon = models.FloatField(_("Longitude"),
                             blank=False,
                             )
-    status = models.CharField(_("Status"),
-                              max_length=150,
-                              choices=STATUS,
-                              blank=False,
-                              )
+    stat = models.CharField(_("Status"),
+                            max_length=150,
+                            choices=STATUS,
+                            blank=False,
+                            )

@@ -36,9 +36,11 @@
             $.get("http://teslascdemo.herokuapp.com/stations/",
                 function( data ) {
                     // add each marker to the map
-                    alert(data);
-                    for (var station in data) {
-                        var location = new google.maps.LatLng(station.lat, station.lng);
+                    for (var idx = 0; idx < data.length; idx++) {
+                        var station = data[idx];
+                        var location = new google.maps.LatLng(station.lat,
+                                                              station.lng);
+                        alert(location);
                         var icon = null;
                         switch (station.status) {
                             case "Operational":
