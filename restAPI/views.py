@@ -43,7 +43,7 @@ class StationList(generics.ListCreateAPIView):
     Generic list view.
     """
     # SessionAuthentication should be removed for production version
-    authentication_classes = (SessionAuthentication)
+    authentication_classes = (SessionAuthentication,)
     permission_classes = (IsStaffOrReadOnly,)  # must be staff user to add wine
     queryset = Station.objects.all()
     serializer_class = StationSerializer
