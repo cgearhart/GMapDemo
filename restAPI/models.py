@@ -5,6 +5,8 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import UserManager as BaseUserManager
 from django.core.mail import send_mail
+from django.db.models.signals import request_started
+from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -135,3 +137,15 @@ class Station(models.Model):
                             choices=STATUS,
                             blank=False,
                             )
+
+
+@receiver(request_started, sender=Station)
+def randomize_stat(sender):
+    """
+    Randomize status of each station on requests
+    """
+    from random import choice
+
+    for station in sender.objects.all():
+        station.stat = choice(Station.STATUS)
+        station.save(updated_fields=['stat'])

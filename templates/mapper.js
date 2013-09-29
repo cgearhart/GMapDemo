@@ -33,6 +33,7 @@
 
         drawMarkers: function () {
             // get markers from database
+            // add info window: http://stackoverflow.com/questions/3059044/google-maps-js-api-v3-simple-multiple-marker-example
             $.get("http://teslascdemo.herokuapp.com/stations/",
                 function( data ) {
                     // add each marker to the map
@@ -54,9 +55,18 @@
                             case "os":
                                 icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png";
                                 break;
+                            default:
+                                icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/green-dot.png";
+                                break;
                         }
-                        alert(icon);
-                        marker.draw(location, icon);
+                        var options = {
+                            draggable: false,
+                            visible: true,
+                            position: location,
+                            map: map.handle,
+                            icon: icon
+                        };
+                        markers.push(new google.maps.Marker(options));
                     }
                 });
         },
@@ -77,26 +87,9 @@
         }
     },
 
-
-    marker = {
-        draw: function (location, icon) {
-            if (this.handle) this.handle.setMap(null);  // clear the marker from the map if already defined
-
-            var options = {
-                draggable: false,
-                visible: true,
-                position: location,
-                map: map.handle,
-                icon: icon
-            };
-
-            this.handle = new google.maps.Marker(options);
-        }
-    };
-
+    markers = new Array();
 
     // Initialize the app
-
     // Need public method to initialize the app using "body onload"; otherwise id=map_canvas doesn't exist & causes error
     ns.mapper = {
         
