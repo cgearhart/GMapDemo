@@ -8,6 +8,8 @@ from django.contrib.auth.models import UserManager as BaseUserManager
 from django.core.mail import send_mail
 from django.utils.translation import ugettext_lazy as _
 
+from django.conf.settings import ADMIN_EMAIL
+
 
 class UserManager(BaseUserManager):
     """
@@ -112,7 +114,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     # Required for sending actiavtion email
     def email_user(self, subject, message, from_email=None):
         """Initiates sending an email to the specified user."""
-        send_mail(subject, message, from_email, [self.email])
+        send_mail(subject, message, from_email, [self.email, ADMIN_EMAIL])
 
 
 class Station(models.Model):

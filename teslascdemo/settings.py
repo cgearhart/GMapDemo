@@ -44,6 +44,7 @@ EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
+ADMIN_EMAIL = os.getenv('ADMIN_EMAIL', '')
 
 # Connect to a postgre database configured in .env file
 db_default = os.getenv('DATABASE_URL', 'postgres://localhost/tesla_db')
