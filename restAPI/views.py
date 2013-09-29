@@ -34,7 +34,7 @@ class StationFilter(django_filters.FilterSet):
     class Meta:
         model = Station
         order_by = True
-        fields = ('status',
+        fields = ('stat',
                   )
 
 
