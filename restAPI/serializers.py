@@ -11,9 +11,6 @@ from restAPI.models import Station
 
 
 class StationSerializer(serializers.ModelSerializer):
-    # Field name must be equal to the `related_name` on the foreign key
-    # associating the `Wine` model with the `Review` model.
-    reviews = serializers.RelatedField(many=True)
 
     class Meta:
         model = Station

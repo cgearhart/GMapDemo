@@ -42,7 +42,8 @@
                                                               station.lng);
                         alert(location);
                         var icon = null;
-                        switch (station.status) {
+                        alert(station.stat);
+                        switch (station.stat) {
                             case "Operational":
                                 icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/green-dot.png";
                                 break;
@@ -56,6 +57,7 @@
                                 icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png";
                                 break;
                         }
+                        alert(icon);
                         marker.draw(location, icon);
                     }
                 });
