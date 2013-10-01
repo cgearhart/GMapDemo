@@ -8,4 +8,5 @@ from restAPI import views
 
 urlpatterns = patterns('',
     url(r'^stations/$', views.StationList.as_view()),
+    url(r'^events/$', views.EventList.as_view()),
 )

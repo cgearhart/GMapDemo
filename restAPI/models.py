@@ -127,6 +127,10 @@ class Station(models.Model):
         ('OS', 'Out of Service'),  # red
         )
 
+    name = models.CharField(_("Station Name"),
+                            max_length=150,
+                            blank=False,
+                            )
     lat = models.FloatField(_("Latitutde"),
                             blank=False,
                             )
@@ -141,3 +145,12 @@ class Station(models.Model):
 
     def get_stat(self):
         return choice(self.STATUS)[0]
+
+
+class Event(models.Model):
+
+    station_id = models.ForeignKey(Station)
+    text = models.CharField(_("text"),
+                            max_length=150,
+                            blank=False,
+                            )

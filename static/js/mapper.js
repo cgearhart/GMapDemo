@@ -4,6 +4,34 @@
     var map_handle, infowindow,
     marker_handles = [];
 
+    var base_url = "http://teslascdemo.herokuapp.com/";
+    var icon_url = "http://www.google.com/intl/en_us/mapfiles/ms/micons/";
+
+    function addMarkerCallback (marker_handle, station) {
+        google.maps.event.addListener(marker_handle, 'click', function () {
+            $.get(base_url+"event/?station_id="+station["id"], (function (name, marker_handle) {
+                    return function (data) {
+                        var text = name;
+                        for (var d in data) {
+                            text += '\n' + d["text"];
+                        }
+                        addInfoWindow(text, marker_handle);
+                    };
+                })(station["name"], marker_handle));
+        });
+    }
+
+    function addInfoWindow (text, marker_handle) {
+        // if an infowindow is already open, close it before making a new one
+        if (typeof infowindow != "undefined") {
+            infowindow.close();
+        }
+        infowindow = new google.maps.InfoWindow({
+            content: text
+        });
+        infowindow.open(map_handle, marker_handle);
+    }
+
     // Initialize the app; Need public method to initialize the app using 
     // "body onload", otherwise id=map_canvas doesn't exist & causes error
     ns.mapper = {
@@ -45,32 +73,32 @@
             // map controlled by map_handle
 
             // GET request for station marker locations from the REST API
-            var url = "http://teslascdemo.herokuapp.com/stations/";
-            $.get(url, function( data ) {
+            $.get(base_url+"stations", function( data ) {
                     
                 // add each marker to the map
                 for (var idx = 0; idx < data.length; idx++) {
                     var location, icon, options, marker;
 
-                    location = new google.maps.LatLng(data[idx].lat,
-                                                          data[idx].lon);
+                    location = new google.maps.LatLng(data[idx]["lat"],
+                                                          data[idx]["lon"]);
                     
                     // set the marker icon color according to station health
+                    
                     switch (data[idx].stat.toLowerCase()) {
                         case "op":
-                            icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/green-dot.png";
+                            icon = icon_url + "green-dot.png";
                             break;
                         case "sm":
-                            icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png";
+                            icon = icon_url + "blue-dot.png";
                             break;
                         case "um":
-                            icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/yellow-dot.png";
+                            icon = icon_url + "yellow-dot.png";
                             break;
                         case "os":
-                            icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png";
+                            icon = icon_url + "red-dot.png";
                             break;
                         default:
-                            icon = "http://www.google.com/intl/en_us/mapfiles/ms/micons/green-dot.png";
+                            icon = icon_url + "green-dot.png";
                             break;
                     }
 
@@ -84,17 +112,7 @@
                     marker = new google.maps.Marker(options);
                     marker_handles.push(marker);
 
-                    google.maps.event.addListener(marker, 'click', (function(marker, d) {
-                        return function() {
-                            var coords = [d.lat, d.lon];
-                            if (typeof infowindow != "undefined") {
-                                infowindow.close();
-                            }
-                            infowindow = new google.maps.InfoWindow();
-                            infowindow.setContent(coords.join(", "));
-                            infowindow.open(map_handle, marker);
-                        };
-                    })(marker, data[idx]));
+                    addMarkerCallback(marker, data[idx]);
                 }
 
             });

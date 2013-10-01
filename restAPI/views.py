@@ -2,10 +2,8 @@
 from rest_framework import generics
 from rest_framework import permissions
 
-from rest_framework.authentication import SessionAuthentication
-
-from restAPI.models import Station
-from restAPI.serializers import StationSerializer
+from restAPI.models import Station, Event
+from restAPI.serializers import StationSerializer, EventSerializer
 
 import django_filters
 
@@ -40,9 +38,27 @@ class StationList(generics.ListCreateAPIView):
     """
     Generic list view.
     """
-    # SessionAuthentication should be removed for production version
-    authentication_classes = (SessionAuthentication,)
-    permission_classes = (IsStaffOrReadOnly,)  # must be staff user to add records
     queryset = Station.objects.all()
     serializer_class = StationSerializer
     filter_class = StationFilter
+
+
+class EventFilter(django_filters.FilterSet):
+    """
+    Filter class for to allow sorting & grouping results by model fields.
+    """
+
+    class Meta:
+        model = Event
+        order_by = True
+        fields = ("station_id",
+                  )
+
+
+class EventList(generics.ListCreateAPIView):
+    """
+    Generic list view.
+    """
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
+    filter_class = EventFilter
