@@ -9,11 +9,15 @@
 
     function addMarkerCallback (marker_handle, station) {
         google.maps.event.addListener(marker_handle, 'click', function () {
-            $.get(base_url+"event/?station_id="+station["id"], (function (name, marker_handle) {
+            $.get(base_url+"events/?station_id="+station["id"], (function (name, marker_handle) {
                     return function (data) {
                         var text = name;
-                        for (var d in data) {
-                            text += '\n' + d["text"];
+                        if (typeof infowindow != "undefined") {
+                            for (var idx = 0; idx < data.length; idx++) {
+                                console.log(data[idx]);
+                                console.log(data[idx]["text"]);
+                                text += '\n' + data[idx]["text"];
+                            }
                         }
                         addInfoWindow(text, marker_handle);
                     };
@@ -25,10 +29,10 @@
         // if an infowindow is already open, close it before making a new one
         if (typeof infowindow != "undefined") {
             infowindow.close();
+        } else {
+            infowindow = new google.maps.InfoWindow();
         }
-        infowindow = new google.maps.InfoWindow({
-            content: text
-        });
+        infowindow.setContent(text);
         infowindow.open(map_handle, marker_handle);
     }
 
