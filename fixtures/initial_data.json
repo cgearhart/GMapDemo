@@ -252,7 +252,7 @@
     "model": "restAPI.event",
     "pk": 3,
     "fields": {
-      "station_id": 0,
+      "station_id": 19,
       "text": "Any valid HTML can go here."
     }
   },
