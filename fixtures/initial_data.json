@@ -236,87 +236,87 @@
     "model": "restAPI.event",
     "pk": 1,
     "fields": {
-      "station_id": 1,
-      "text": "event 1: any html message"
+      "station_id": 6,
+      "text": "event 1: multiple events"
     }
   },
   {
     "model": "restAPI.event",
     "pk": 2,
     "fields": {
-      "station_id": 1,
-      "text": "event 2: a string message"
+      "station_id": 6,
+      "text": "event 2: a single message"
     }
   },
   {
     "model": "restAPI.event",
     "pk": 3,
     "fields": {
-      "station_id": 2,
-      "text": ""
+      "station_id": 0,
+      "text": "Any valid HTML can go here."
     }
   },
   {
     "model": "restAPI.event",
     "pk": 4,
     "fields": {
-      "station_id": 3,
-      "text": ""
+      "station_id": 1,
+      "text": "Images, charts, and graphs."
     }
   },
   {
     "model": "restAPI.event",
     "pk": 5,
     "fields": {
-      "station_id": 4,
-      "text": ""
+      "station_id": 2,
+      "text": "Any valid HTML can go here."
     }
   },
   {
     "model": "restAPI.event",
     "pk": 6,
     "fields": {
-      "station_id": 5,
-      "text": ""
+      "station_id": 3,
+      "text": "Events and names are populated from the database."
     }
   },
   {
     "model": "restAPI.event",
     "pk": 7,
     "fields": {
-      "station_id": 6,
-      "text": ""
+      "station_id": 4,
+      "text": "Visit the /events/ endpoint to add new events."
     }
   },
   {
     "model": "restAPI.event",
     "pk": 8,
     "fields": {
-      "station_id": 14,
-      "text": "signup today!"
+      "station_id": 5,
+      "text": "Signup today!"
     }
   },
   {
     "model": "restAPI.event",
     "pk": 9,
     "fields": {
-      "station_id": 15,
-      "text": "login to add events or stations"
+      "station_id": 6,
+      "text": "Login doesn't do anything at the moment."
     }
   },
   {
     "model": "restAPI.event",
     "pk": 10,
     "fields": {
-      "station_id": 16,
-      "text": "Not all have messages"
+      "station_id": 7,
+      "text": "Nothing is password protected."
     }
   },
   {
     "model": "restAPI.event",
     "pk": 11,
     "fields": {
-      "station_id": 17,
+      "station_id": 8,
       "text": "demonstration message"
     }
   },
@@ -324,8 +324,80 @@
     "model": "restAPI.event",
     "pk": 12,
     "fields": {
-      "station_id": 18,
+      "station_id": 9,
       "text": "random message"
+    }
+  },
+  {
+    "model": "restAPI.event",
+    "pk": 12,
+    "fields": {
+      "station_id": 10,
+      "text": "I've run out of things to say."
+    }
+  },
+  {
+    "model": "restAPI.event",
+    "pk": 12,
+    "fields": {
+      "station_id": 11,
+      "text": "There are still many events to add."
+    }
+  },
+  {
+    "model": "restAPI.event",
+    "pk": 12,
+    "fields": {
+      "station_id": 12,
+      "text": "Long line for the charger today."
+    }
+  },
+  {
+    "model": "restAPI.event",
+    "pk": 12,
+    "fields": {
+      "station_id": 13,
+      "text": "I'm glad I didn't buy a Volt..."
+    }
+  },
+  {
+    "model": "restAPI.event",
+    "pk": 12,
+    "fields": {
+      "station_id": 14,
+      "text": "You could probably put video here, too - but why?"
+    }
+  },
+  {
+    "model": "restAPI.event",
+    "pk": 12,
+    "fields": {
+      "station_id": 15,
+      "text": "Color is one of the best visualization tools."
+    }
+  },
+  {
+    "model": "restAPI.event",
+    "pk": 12,
+    "fields": {
+      "station_id": 16,
+      "text": "these events are not currently related to icon color."
+    }
+  },
+  {
+    "model": "restAPI.event",
+    "pk": 12,
+    "fields": {
+      "station_id": 17,
+      "text": "Simulated events are easy!"
+    }
+  },
+  {
+    "model": "restAPI.event",
+    "pk": 12,
+    "fields": {
+      "station_id": 18,
+      "text": "Blank, or nonexistent messages work too."
     }
   }
 ]

@@ -1,40 +1,12 @@
 (function(ns, $, google) {
 
     // must keep handles in scope for the objects to persist and be displayed
-    var map_handle, infowindow,
-    marker_handles = [];
+    var map_handle, infowindow_handle;
+    var marker_handles = [];
 
     var base_url = "http://teslascdemo.herokuapp.com/";
     var icon_url = "http://www.google.com/intl/en_us/mapfiles/ms/micons/";
 
-    function addMarkerCallback (marker_handle, station) {
-        google.maps.event.addListener(marker_handle, 'click', function () {
-            $.get(base_url+"events/?station_id="+station["id"], (function (name, marker_handle) {
-                    return function (data) {
-                        var text = name;
-                        if (typeof infowindow != "undefined") {
-                            for (var idx = 0; idx < data.length; idx++) {
-                                console.log(data[idx]);
-                                console.log(data[idx]["text"]);
-                                text += '\n' + data[idx]["text"];
-                            }
-                        }
-                        addInfoWindow(text, marker_handle);
-                    };
-                })(station["name"], marker_handle));
-        });
-    }
-
-    function addInfoWindow (text, marker_handle) {
-        // if an infowindow is already open, close it before making a new one
-        if (typeof infowindow != "undefined") {
-            infowindow.close();
-        } else {
-            infowindow = new google.maps.InfoWindow();
-        }
-        infowindow.setContent(text);
-        infowindow.open(map_handle, marker_handle);
-    }
 
     // Initialize the app; Need public method to initialize the app using 
     // "body onload", otherwise id=map_canvas doesn't exist & causes error
@@ -116,7 +88,27 @@
                     marker = new google.maps.Marker(options);
                     marker_handles.push(marker);
 
-                    addMarkerCallback(marker, data[idx]);
+                    google.maps.event.addListener(marker, 'click', (function (marker_handle, station) {
+                        return function () {
+                            if (typeof infowindow_handle != "undefined") {
+                                infowindow_handle.close();
+                            }
+                            infowindow_handle = new google.maps.InfoWindow();
+                            infowindow_handle.setContent(station["name"]);
+                            $.get(base_url+"events/?station_id="+station["id"], (function (name, marker_handle) {
+                                    return function (data) {
+                                        var text = name;
+                                        for (var idx = 0; idx < data.length; idx++) {
+                                            text += "<br>" + data[idx]["text"];
+                                        }
+                                        infowindow_handle.setContent(text);
+                                    };
+                                })(station["name"], marker_handle)).always(function () {
+                                    infowindow_handle.open(map_handle, marker_handle);
+                            });
+                        };
+                    })(marker, data[idx]));
+
                 }
 
             });
