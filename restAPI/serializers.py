@@ -25,7 +25,7 @@ class StationSerializer(serializers.ModelSerializer):
                   'lon',
                   'stat',
                   )
-        read_only_fields = ('id', 'stat')
+        read_only_fields = ('id', )
 
 
 class EventSerializer(serializers.ModelSerializer):
