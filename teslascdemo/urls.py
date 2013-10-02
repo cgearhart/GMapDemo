@@ -32,5 +32,5 @@ urlpatterns = patterns('',
     url(r'index.html', TemplateView.as_view(template_name='index.html')),
 
     # redirect requests to the base url to the suggested page instead
-    url(r'^$', RedirectView.as_view(url='stations/')),
+    url(r'^$', RedirectView.as_view(url='index.html')),
 )
